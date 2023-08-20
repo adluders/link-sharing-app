@@ -1,0 +1,33 @@
+.formWrapper {
+  /* border: solid blue; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.formHolder {
+  /* border: solid red; */
+  background-color: #fff;
+  padding: 1.5rem 1rem;
+}
+
+.header {
+  font-size: 32px;
+}
+
+.subHeader {
+  color: #333;
+}
+
+.formGroup {
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formInput {
+  padding: 0.5rem;
+  font-size: 1rem;
+}
