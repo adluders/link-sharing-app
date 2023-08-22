@@ -1,6 +1,5 @@
 "use client";
 import Form from "@/components/Form";
-import Layout from "@/components/Layout";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
@@ -25,14 +24,10 @@ const Login = () => {
       // Save data to sessionStorage
       sessionStorage.setItem("id", `${data.user.id}`);
 
-      router.push("/");
+      router.push("/account");
     }
   };
-  return (
-    <Layout>
-      <Form formSubmit={handleSignIn} error={err} />
-    </Layout>
-  );
+  return <Form formSubmit={handleSignIn} error={err} />;
 };
 
 export default Login;

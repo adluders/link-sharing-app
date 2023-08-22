@@ -4,20 +4,29 @@
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+  margin-top: 8rem;
 }
 
 .formHolder {
   /* border: solid red; */
   background-color: #fff;
-  padding: 1.5rem 1rem;
+  padding: 2.5rem;
+  border-radius: 0.8rem;
 }
 
 .header {
-  font-size: 32px;
+  margin-bottom: 2rem;
 }
 
-.subHeader {
+.header h1 {
+  font-size: 32px;
+  line-height: 3rem;
   color: #333;
+}
+
+.header p {
+  color: #737373;
+  font-size: 0.8rem;
 }
 
 .formGroup {
@@ -27,7 +36,45 @@
   gap: 0.5rem;
 }
 
-.formInput {
+.formGroup label {
+  font-size: 0.8rem;
+  color: #737373;
+}
+
+.inputGroup {
+  border: solid 1px #d9d9d9;
+  border-radius: 0.5rem;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 9fr;
   padding: 0.5rem;
-  font-size: 1rem;
+}
+
+.formInput {
+  font-size: 0.8rem;
+  border: none;
+  padding: 0.2rem;
+}
+
+.formSubmitBtn {
+  margin: 1.5rem 0;
+}
+
+.formSubmitBtn button {
+  width: 100%;
+}
+
+.formMssg {
+  text-align: center;
+  font-size: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+.formMssg p {
+  color: #737373;
+}
+
+.formMssg a {
+  text-decoration: none;
+  color: #633cff;
 }

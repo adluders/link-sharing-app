@@ -1,41 +1,40 @@
 "use client";
-
-import Layout from "@/components/Layout";
+import Form from "@/components/Form";
+import { useRouter } from "next/navigation";
 import supabase from "@/utils/supabase";
-import { createClient } from "@supabase/supabase-js";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
-const Home = () => {
-  // const supabase = createClient(
-  //   process.env.NEXT_PUBLIC_SUPABASE_URL,
-  //   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-  // );
+const SignUp = () => {
+  const [err, setErr] = useState("");
+  const router = useRouter();
 
-  // const [id, setId] = useState("");
-  const [user, setUser] = useState();
+  const handleSignUp = async (e) => {
+    e.preventDefault();
 
-  useEffect(() => {
-    let id;
-    if (sessionStorage.length > 0) {
-      id = sessionStorage.getItem("id");
-      const getData = async () => {
-        let { data: profiles } = await supabase
-          .from("profiles")
-          .select("*")
-          .eq("id", `${id}`);
+    const email = e.target[0].value;
+    const password = e.target[1].value;
+    const passwordConfirm = e.target[2].value;
 
-        setUser(profiles[0]);
-      };
+    if (password !== passwordConfirm) {
+      setErr("Passwords do not match");
+    } else {
+      const { data, error } = await supabase.auth.signUp({
+        email: email,
+        password: passwordConfirm,
+      });
 
-      getData();
+      await supabase
+        .from("profiles")
+        .insert([{ id: `${data.user.id}`, email: `${data.user.email}` }]);
+
+      if (error) {
+        setErr(`${error.message}`);
+      } else {
+        router.push("/login");
+      }
     }
-  }, []);
-
-  return (
-    <Layout>
-      <h1>Hi {user && user.last_name}</h1>
-    </Layout>
-  );
+  };
+  return <Form formSubmit={handleSignUp} signUp={true} error={err} />;
 };
 
-export default Home;
+export default SignUp;

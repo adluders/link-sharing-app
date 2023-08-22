@@ -1,0 +1,30 @@
+.button {
+  border-radius: 0.5rem;
+  padding: 0.8rem 5rem;
+  font-size: 0.8rem;
+  font-size: 1rem;
+  text-transform: capitalize;
+  cursor: pointer;
+  border: none;
+}
+
+.main {
+  background-color: #633cff;
+  color: #fff;
+}
+
+.main:hover,
+.main:active {
+  background-color: #beadff;
+}
+
+.secondary {
+  border: 1px solid #633cff;
+  color: #633cff;
+  background-color: #fff;
+}
+
+.secondary:hover {
+  background-color: #efebff;
+  border: 1px solid transparent;
+}
