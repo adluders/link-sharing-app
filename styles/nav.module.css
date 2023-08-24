@@ -25,5 +25,11 @@
 }
 
 .active {
-  background-color: red;
+  background-color: #efebff;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.5rem;
+}
+
+.active a {
+  color: #633cff;
 }

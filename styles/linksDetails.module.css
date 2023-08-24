@@ -1,0 +1,41 @@
+.linksDetailsWrapper {
+  background-color: #fff;
+  padding: 2.5rem;
+  border-radius: 0.5rem;
+}
+
+.header h1 {
+  color: #333;
+  font-size: 2rem;
+}
+
+.header p {
+  color: #737373;
+  font-size: 0.8rem;
+  margin: 1rem 0 2rem 0;
+}
+
+.linkAdd {
+  border: 1px solid #633cff;
+  color: #633cff;
+  text-align: center;
+  padding: 0.5rem 0;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.linkAdd:hover {
+  background-color: #efebff;
+}
+.save {
+  display: grid;
+  margin-top: 2rem;
+  border-top: 3px solid #fafafa;
+}
+
+.save button {
+  margin-top: 1.5rem;
+  margin-left: auto;
+  padding: 0.8rem 1.5rem;
+  background-color: rgba(99, 60, 255, 0.1);
+}

@@ -1,0 +1,77 @@
+.wrapper {
+  background-color: #fff;
+  padding: 2.5rem;
+  border-radius: 0.5rem;
+}
+
+.header h1 {
+  color: #333;
+  font-size: 2rem;
+}
+
+.header p {
+  color: #737373;
+  font-size: 0.8rem;
+  margin: 1rem 0 2rem 0;
+}
+
+.formGroup {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1rem;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+
+.formGroup label {
+  color: #737373;
+}
+
+.formGroup input {
+  color: #737373;
+  background-color: #fff;
+  font-size: 1rem;
+  border: 0.5px solid #d9d9d9;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.formGroup p {
+  color: #737373;
+}
+
+.photoUploader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3.5rem 0;
+  border-radius: 0.5rem;
+  background-color: #efebff;
+  max-width: 50%;
+  cursor: pointer;
+}
+
+.photoUploader p {
+  color: #633cff;
+  margin-top: 0.5rem;
+}
+
+.sectionWrapper {
+  margin-top: 1rem;
+  background-color: #fafafa;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.save {
+  display: grid;
+  margin-top: 2rem;
+  border-top: 3px solid #fafafa;
+}
+
+.save button {
+  margin-top: 1.5rem;
+  margin-left: auto;
+  padding: 0.8rem 1.5rem;
+}
