@@ -7,8 +7,7 @@ const Button = ({ isLink, location, btnType, primary, content }) => {
 
   return isLink ? (
     <Link href={location} className={`${button} ${primary ? main : secondary}`}>
-      {" "}
-      {content}{" "}
+      {content}
     </Link>
   ) : (
     <button

@@ -24,7 +24,7 @@ const Login = () => {
       // Save data to sessionStorage
       sessionStorage.setItem("id", `${data.user.id}`);
 
-      router.push("/account");
+      router.push("/account/links");
     }
   };
   return <Form formSubmit={handleSignIn} error={err} />;
