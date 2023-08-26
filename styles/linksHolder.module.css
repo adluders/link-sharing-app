@@ -19,3 +19,7 @@
 .empty p {
   color: #737373;
 }
+
+.container {
+  margin-top: 2rem;
+}

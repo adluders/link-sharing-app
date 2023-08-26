@@ -46,8 +46,6 @@ const ProfileDetails = ({ user }) => {
       .update({ first_name: first, last_name: last, email: userEmail })
       .eq("id", id)
       .select();
-
-    console.log(data);
   };
 
   return (
@@ -57,7 +55,6 @@ const ProfileDetails = ({ user }) => {
         <p>Add your details to create a perosnal touch to your profile.</p>
       </div>
 
-      {/**For Submit is to make a put/edit request to update the state */}
       <form onSubmit={updateProfile}>
         <section className={sectionWrapper}>
           <div className={formGroup}>
@@ -128,7 +125,4 @@ const ProfileDetails = ({ user }) => {
   );
 };
 
-// <div className={userInfo}>
-//   <p>{first_name}</p>
-// </div>
 export default ProfileDetails;

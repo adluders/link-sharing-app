@@ -1,0 +1,28 @@
+.wrapper {
+  border: solid 0.1px #d9d9d9;
+  border-radius: 0.5rem;
+  padding: 0 1.5rem;
+  background-color: #fff;
+  position: absolute;
+  width: 95%;
+  z-index: 2;
+}
+
+.item {
+  list-style: none;
+  border-bottom: 1px solid #d9d9d9;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem 0;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.item:hover {
+  color: #633cff;
+}
+
+.item:last-of-type {
+  border: none;
+}
