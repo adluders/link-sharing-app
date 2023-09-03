@@ -12,7 +12,7 @@ const Home = () => {
   useEffect(() => {
     let id = sessionStorage.getItem("id");
 
-    const getData = async () => {
+    const getUser = async () => {
       let { data: profiles } = await supabase
         .from("profiles")
         .select("*")
@@ -20,8 +20,7 @@ const Home = () => {
 
       setUser(profiles[0]);
     };
-
-    getData();
+    getUser();
   }, []);
 
   return (

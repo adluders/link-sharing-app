@@ -5,10 +5,11 @@ import starter from "../public/images/illustration-empty.svg";
 import Image from "next/image";
 import styles from "../styles/linksHolder.module.css";
 import LinkItem from "./LinkItem";
+import supabase from "@/utils/supabase";
 
 const LinksHolder = () => {
   const { wrapper, empty, container } = styles;
-  const [links, setLinks] = useState([]);
+  const [userLinks, setLinks] = useState([]);
 
   const linkItems = [
     {
@@ -28,13 +29,27 @@ const LinksHolder = () => {
   ];
 
   useEffect(() => {
-    setLinks(linkItems);
+    const getLinks = async () => {
+      let { data: links, error } = await supabase
+        .from("links")
+        .select("*")
+        .eq("owner", "e1cc27b8-dcc3-4033-9b7d-24fbf1eb47fc");
+
+      console.log(links);
+      setLinks(links);
+    };
+
+    getLinks();
   }, []);
 
-  return links ? (
+  return userLinks ? (
     <section className={container}>
-      {links.map((link) => (
-        <LinkItem key={link.id} link={link} />
+      {userLinks.map((link) => (
+        <LinkItem
+          key={userLinks.indexOf(link)}
+          link={link}
+          order={userLinks.indexOf(link) + 1}
+        />
       ))}
     </section>
   ) : (

@@ -1,18 +1,23 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import styles from "../styles/platforms.module.css";
 import github from "../public/images/icon-github.svg";
-import youtube from "../public/images/icon-youtube.svg";
-import linkedin from "../public/images/icon-linkedin.svg";
-import facebook from "../public/images/icon-facebook.svg";
-import frontend from "../public/images/icon-frontend-mentor.svg";
-import gitlab from "../public/images/icon-gitlab.svg";
-import hashnode from "../public/images/icon-hashnode.svg";
-import stackOverflow from "../public/images/icon-stack-overflow.svg";
-import twitch from "../public/images/icon-twitch.svg";
-import twitter from "../public/images/icon-twitter.svg";
+// import youtube from "../public/images/icon-youtube.svg";
+// import linkedin from "../public/images/icon-linkedin.svg";
+// import facebook from "../public/images/icon-facebook.svg";
+// import frontend from "../public/images/icon-frontend-mentor.svg";
+// import gitlab from "../public/images/icon-gitlab.svg";
+// import hashnode from "../public/images/icon-hashnode.svg";
+// import stackOverflow from "../public/images/icon-stack-overflow.svg";
+// import twitch from "../public/images/icon-twitch.svg";
+// import twitter from "../public/images/icon-twitter.svg";
 import Image from "next/image";
+import supabase from "@/utils/supabase";
 
-const Platforms = () => {
+//when a platform is clicked, update the value in the box and set isPlatformOpen to false
+//when clicked. send an opject with the function to update the display
+
+const Platforms = ({ updatePlatform }) => {
   const platformOptions = [
     {
       id: 0,
@@ -56,20 +61,43 @@ const Platforms = () => {
     },
   ];
 
+  const [platforms, setPlatforms] = useState();
+
+  useEffect(() => {
+    const getBucket = async () => {
+      let { data } = await supabase.storage.from("images").list("icons");
+      setPlatforms(data);
+    };
+
+    getBucket();
+  }, []);
+
   const { wrapper, item } = styles;
 
   return (
     <div>
       <ul className={wrapper}>
-        {platformOptions.map(({ id, name }) => (
-          <li key={id} className={item}>
-            <Image src={github} alt={`${name} icon`} />
-            <p>{name}</p>
-          </li>
-        ))}
+        {platforms &&
+          platforms.map(({ id, name }) => {
+            const platformName = name.split(".");
+
+            return (
+              <li key={id} className={item}>
+                <Image
+                  src={`https://jvsqpigrjvyywrrocvaq.supabase.co/storage/v1/object/public/images/icons/${name}`}
+                  alt={name}
+                  width={20}
+                  height={20}
+                />
+                <p onClick={updatePlatform}>{platformName[0]}</p>
+              </li>
+            );
+          })}
       </ul>
     </div>
   );
 };
 
 export default Platforms;
+
+() => {};
